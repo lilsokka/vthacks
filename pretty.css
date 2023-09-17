@@ -37,7 +37,7 @@ body{
 }
 .content-box .typing-text{
   overflow: hidden;
-  max-height: 256px;
+  max-height: 720px;
 }
 .typing-text::-webkit-scrollbar{
   width: 0;
@@ -60,18 +60,20 @@ body{
   border-radius: 4px;
 }
 .typing-text p span.active{
-  color: #17A2B8;
+  /*color: #17A2B8;*/
+  color: orange
 }
 .typing-text p span.active::before{
-  position: absolute;
+  position: absolute ;
   content: "";
   height: 2px;
   width: 100%;
   bottom: 0;
   left: 0;
-  opacity: 0;
+  opacity: .5;
   border-radius: 5px;
-  background: #17A2B8;
+  /*background: #17A2B8;*/
+  background: orange;
   animation: blink 1s ease-in-out infinite;
 }
 @keyframes blink{
