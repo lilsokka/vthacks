@@ -121,8 +121,7 @@ function initTyping() {
         infoForDone(linesList[1]);
 
         clearInterval(timer);
-        inpField.value = "";
-    }
+        }
      
 }
 
@@ -142,6 +141,7 @@ function initTimer() {
 
 
 function resetGame() {
+    endType = false
     linesList = loadCode();
     clearInterval(timer);
     timeLeft = maxTime;
@@ -155,15 +155,16 @@ function resetGame() {
 
 function infoForDone(snippetNum)  {
     typingText.innerHTML = null
-    for  (i = 0; i < codeSnippets[snippetNum].length; i++) {
-        typeSnippets[currentTest][i].split("").forEach(char => {
+    i = 0
+    for  (i; i < codeSnippets[snippetNum].length; i++) {
+        codeSnippets[snippetNum][i].split("").forEach(char => {
             let span = `<span>${char}</span>`
             typingText.innerHTML += span;
         });
         typingText.innerHTML += '<br></br>'
-        currentLine++;
-        endType = true
     }
+        endType = true
+    
 }
 
 
