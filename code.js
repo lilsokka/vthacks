@@ -1,4 +1,5 @@
 printSnippetOne = [
+    'A java Factorial Calculator',
     'import java.util.Scanner;', 
     '    public class FactorialCalculator {',
     '        public static void main(String[] args) {',
@@ -50,18 +51,72 @@ typeSnippetOne = [
     '}'
 ];
 typeSnippetTwo = [
-    'this is just a test',
-    'testing 1',
-    'testing 2',
-    '1234',
-    '56789',
-    'testing 5',
-    'testing 6',
-    'testing 7',
+    'public class HelloWorld {',
+    'public static void main(String[] args) {',
+    'System.out.println("Hello, World!");',
+    '}',
+    '}',
+]
+printSnippetTwo = [
+    'Basic print statement in Java!',
+'    public class HelloWorld {',
+'        public static void main(String[] args) {',
+'            System.out.println("Hello, World!");',
+'        }',
+'    }'
+]
+typeSnippetThree = [
+    'function greetUser(name) {',
+    'console.log("Hello, " + name + "!");',
+    '}',
+    'greetUser("Alice");'
+]
+printSnippetThree = [
+    'Basic print statemtn in Javascript!',
+'    function greetUser(name) {',
+'        console.log("Hello, " + name + "!");',
+'    }',
+'    ',
+'    greetUser("Alice");'
+]
+typeSnippetFour = [
+    'def greet_user(name):',
+    'print("Hello, " + name + "!")',
+    'greet_user("Bob")'
+]
+printSnippetFour = [
+    'Basic print statement in Python',
+    'def greet_user(name):',
+    'print("Hello, " + name + "!")',
+    '',
+    'greet_user("Bob")'
+]
+typeSnippetFive = [
+'import java.util.Random;',
+'public class RandomNumberGenerator {',
+'public static void main(String[] args) {',
+'Random random = new Random();',
+'int randomNumber = random.nextInt(100) + 1;',
+'System.out.println("Random Number: " + randomNumber);',
+'}',
+'}'
+]
+printSnippetFive = [
+    'Random Number Generator in Java!',
+    'import java.util.Random;',
+    '',
+    'public class RandomNumberGenerator {',
+    '    public static void main(String[] args) {',
+    '        Random random = new Random();',
+    '',
+    '        int randomNumber = random.nextInt(100) + 1;',
+    '        System.out.println("Random Number: " + randomNumber);',
+    '    }',
+    '}'
 ]
 const typeSnippets = [
-    typeSnippetOne , typeSnippetTwo
+    typeSnippetOne , typeSnippetTwo, typeSnippetThree, typeSnippetFour, typeSnippetFive
 ];
 const codeSnippets = [
-    printSnippetOne
+    printSnippetOne, printSnippetTwo, printSnippetThree, printSnippetFour,  printSnippetFive
 ];

@@ -10,6 +10,7 @@ let timer,
 maxTime = 0,
 timeLeft = maxTime,
 charIndex = mistakes = isTyping = typedCount = totalTyped = oldChars = 0;
+endType = false
 
 function loadCode(currentLine = 0, currentTest = -1, totalLines = 0) {
     typingText.innerHTML = null
@@ -26,7 +27,7 @@ function loadCode(currentLine = 0, currentTest = -1, totalLines = 0) {
 
     }
         
-    if (typeSnippets[currentTest].length < currentLine + 4){
+    if (typeSnippets[currentTest].length < currentLine + 6){
         for  (i; i < typeSnippets[currentTest].length; i++) {
             typeSnippets[currentTest][i].split("").forEach(char => {
                 let span = `<span>${char}</span>`
@@ -36,14 +37,14 @@ function loadCode(currentLine = 0, currentTest = -1, totalLines = 0) {
             currentLine++;
         }
     } else {
-        for(i; i < currentLine + 4; i++)  {
+        for(i; i < currentLine + 6; i++)  {
             typeSnippets[currentTest][i].split("").forEach(char => {
                 let span = `<span>${char}</span>`
                 typingText.innerHTML += span;
             });
             typingText.innerHTML += '<br></br>'
         }
-        currentLine += 4;
+        currentLine += 6;
     }
     typingText.querySelectorAll("span")[0].classList.add("active");
     document.addEventListener("keydown", () => inpField.focus());
@@ -56,6 +57,9 @@ function loadCode(currentLine = 0, currentTest = -1, totalLines = 0) {
 
 
 function initTyping() {
+    if (endType)    {
+        return
+    }
     let characters = typingText.querySelectorAll("span");
     let typedChar = inpField.value.split("")[typedCount];
     if(charIndex < characters.length - 1) {
@@ -114,7 +118,8 @@ function initTyping() {
         timeTag.innerText = typedCount
 
     } else {
-        infoForDone();
+        infoForDone(linesList[1]);
+
         clearInterval(timer);
         inpField.value = "";
     }
@@ -148,8 +153,17 @@ function resetGame() {
     cpmTag.innerText = 0;
 }
 
-function infoForDone()  {
-
+function infoForDone(snippetNum)  {
+    typingText.innerHTML = null
+    for  (i = 0; i < codeSnippets[snippetNum].length; i++) {
+        typeSnippets[currentTest][i].split("").forEach(char => {
+            let span = `<span>${char}</span>`
+            typingText.innerHTML += span;
+        });
+        typingText.innerHTML += '<br></br>'
+        currentLine++;
+        endType = true
+    }
 }
 
 
